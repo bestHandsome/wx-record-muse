@@ -90,7 +90,7 @@ export default class VueTouch {
       }
     }
   }
-  move(e) {
+  move() {
     this.vueMoves = false;
   }
 }

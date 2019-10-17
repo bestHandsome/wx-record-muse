@@ -2,11 +2,10 @@ module.exports = {
   presets: ["@vue/app"]
   // plugins: [
   //   [
-  //     "import",
+  //     "component",
   //     {
-  //       libraryName: "muse-ui",
-  //       libraryDirectory: "lib",
-  //       camel2DashComponentName: false
+  //       libraryName: "jxh-ui-pc",
+  //       libraryDirectory: "lib"
   //     }
   //   ]
   // ]

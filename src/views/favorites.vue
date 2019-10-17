@@ -56,7 +56,7 @@
 </style>
 <script>
 import { getCommentList, delComment } from "../api";
-const urlPrefix = "http://192.168.40.181:3000/upload/images/";
+const urlPrefix = "http://39.107.27.66:3000/upload/images/";
 import Preview from "components/wx-preview";
 import NoData from "components/noData";
 import { timeTransform } from "../assets/js/utils";
