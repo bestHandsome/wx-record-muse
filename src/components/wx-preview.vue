@@ -21,7 +21,6 @@
           v-tap="showBar"
           v-swipe-left="scrollLeft"
           v-swipe-right="scrollRight"
-          v-swipe-down="hide"
         >
           <img
             :src="typeof item === 'string' ? item : item.blob"
@@ -163,7 +162,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
@@ -182,17 +181,10 @@ export default {
     position: relative;
     width: 100vw;
     height: 100vh;
+    overflow-y: auto;
     box-sizing: border-box;
     img {
       width: 100%;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      -moz-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      -o-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
     }
   }
 }

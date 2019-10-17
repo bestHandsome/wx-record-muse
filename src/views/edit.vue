@@ -1,5 +1,5 @@
 <template>
-  <div class="edit-area">
+  <div class="edit-area" :class="isPreviewShow ? 'lock-back' : ''">
     <h1 class="edit-top">
       <router-link to="home" class="cancel-text">取消</router-link>
       <mu-button color="success" small @click="publishComment">发表</mu-button>
@@ -183,14 +183,9 @@ export default {
       this.isPreviewShow = true;
     },
     publishComment() {
-      const commentList = JSON.parse(localStorage.getItem("commentList")) || [];
-      commentList.push({
-        comment: this.value1,
-        files: this.files
-      });
       const data = {
         text: this.value1,
-        imageArr: JSON.stringify(this.files.map(item => item.name))
+        imageArr: this.files.map(item => item.name)
       };
       addComment(data).then(
         res => {
@@ -252,7 +247,6 @@ export default {
 }
 .choose img {
   position: absolute;
-  width: 100%;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -280,5 +274,9 @@ export default {
   background: white;
   width: 100%;
   height: 100%;
+}
+.lock-back {
+  height: 100%;
+  overflow: hidden;
 }
 </style>

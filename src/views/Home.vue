@@ -61,6 +61,16 @@ export default {
           image: milk,
           title: "低脂酸奶",
           author: "mokayi"
+        },
+        {
+          image: dong,
+          title: "冬瓜",
+          author: "yuyang"
+        },
+        {
+          image: pear,
+          title: "梨",
+          author: "Linyu"
         }
       ]
     };

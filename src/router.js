@@ -1,8 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
-import Travel from "./views/travel";
+import Travel from "./views/travel/";
 import Favorite from "./views/favorites";
+import Grade from "./views/grade";
 import Edit from "./views/edit";
 import Layout from "./components/layout";
 Vue.use(Router);
@@ -18,7 +19,7 @@ export default new Router({
       redirect: "home",
       children: [
         {
-          path: "home",
+          path: "/home",
           name: "home",
           // route level code-splitting
           // this generates a separate chunk (about.[hash].js) for this route
@@ -29,14 +30,31 @@ export default new Router({
           }
         },
         {
-          path: "travel",
+          path: "/travel",
           name: "travel",
           component: Travel,
           meta: {
             title: "旅行日记"
           }
+        },
+        {
+          path: "/grade",
+          name: "grade",
+          component: Grade,
+          meta: {
+            title: "评出最想去的地方"
+          }
         }
       ]
+    },
+    {
+      path: "/travel/:id",
+      name: "travel-detail",
+      component: () => import("views/travel/travel-detail.vue"),
+      meta: {
+        title: "测评",
+        oauthLogin: true
+      }
     },
     {
       path: "/favorite",

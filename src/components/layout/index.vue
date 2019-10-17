@@ -53,24 +53,4 @@ export default {
   box-sizing: border-box;
   overflow-y: auto;
 }
-
-/*滚动条整体样式*/
-.content::-webkit-scrollbar {
-  width: 10px; /*高宽分别对应横竖滚动条的尺寸*/
-  height: 1px;
-}
-
-/*滚动条里面小方块*/
-.content::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-  background: #535353;
-}
-
-/*滚动条里面轨道*/
-.content::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  background: #ededed;
-}
 </style>

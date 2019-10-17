@@ -1,9 +1,10 @@
 <template>
-  <mu-paper>
+  <mu-paper :class="isPreviewShow ? 'lock-back' : ''">
     <div class="menu-header">
       <mu-icon value="keyboard_arrow_left" @click="back"></mu-icon>
     </div>
     <div class="bg-area"></div>
+    <NoData v-if="list.length === 0"></NoData>
     <div class="comment-area">
       <div v-for="(item, i) in list" :key="i" class="comment-item">
         <div class="avatar">
@@ -29,7 +30,10 @@
               />
             </div>
           </div>
-          <p></p>
+          <div class="operate-area">
+            <div class="date">{{ item.date | formatTime }}</div>
+            <div class="comment-del" @click="deleteCom(item._id)">删除</div>
+          </div>
         </div>
       </div>
     </div>
@@ -51,12 +55,19 @@
 }
 </style>
 <script>
-import { getCommentList } from "../api";
+import { getCommentList, delComment } from "../api";
 const urlPrefix = "http://192.168.40.181:3000/upload/images/";
-import Preview from "components/wx-preview.vue";
+import Preview from "components/wx-preview";
+import NoData from "components/noData";
+import { timeTransform } from "../assets/js/utils";
+
 export default {
   components: {
-    Preview
+    Preview,
+    NoData
+  },
+  filters: {
+    formatTime: value => timeTransform(value)
   },
   data() {
     return {
@@ -68,7 +79,7 @@ export default {
   },
   methods: {
     back() {
-      this.$router.back();
+      this.$router.push("/home");
     },
     getComments() {
       return new Promise((resolve, reject) => {
@@ -88,7 +99,9 @@ export default {
       this.isPreviewShow = true;
     },
     initData() {
+      const loading = this.$loading();
       this.getComments().then(res => {
+        loading.close();
         this.list = res;
         this.list.forEach(item => {
           item.imageArr = item.imageArr.map(item => urlPrefix + item);
@@ -104,6 +117,21 @@ export default {
       } else {
         el.style.height = "100%";
       }
+    },
+    deleteCom(id) {
+      this.$confirm("确定要删除？", "提示", {
+        type: "warning"
+      }).then(({ result }) => {
+        if (result) {
+          delComment({ id }).then(() => {
+            const idx = this.list.findIndex(item => item._id === id);
+            if (idx >= 0) {
+              this.list.splice(idx, 1);
+            }
+            this.$toast.message("删除成功");
+          });
+        }
+      });
     }
   },
   mounted() {
@@ -116,6 +144,7 @@ export default {
 .menu-header {
   background: #333;
   padding: 5px 8px;
+  height: 40px;
   text-align: left;
   i {
     color: #fff;
@@ -175,11 +204,11 @@ export default {
   flex-wrap: wrap;
   .pic-item {
     flex: 0 0 30%;
+    margin: 10px 1.5%;
     position: relative;
     padding-top: 30%;
-    margin: 5px;
+    box-sizing: border-box;
     img {
-      width: 100%;
       position: absolute;
       left: 50%;
       top: 50%;
@@ -190,5 +219,23 @@ export default {
       transform: translate(-50%, -50%);
     }
   }
+}
+.operate-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  .date {
+    color: #888;
+    font-size: 14px;
+  }
+  .comment-del {
+    text-align: left;
+    color: lightblue;
+  }
+}
+.lock-back {
+  height: 100vh;
+  overflow: hidden;
 }
 </style>

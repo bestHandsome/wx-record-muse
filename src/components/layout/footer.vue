@@ -2,27 +2,27 @@
   <div class="footer">
     <mu-bottom-nav :value="activeName">
       <mu-bottom-nav-item
-        to="home"
+        to="/home"
         value="home"
         icon="home"
       ></mu-bottom-nav-item>
       <mu-bottom-nav-item
-        to="favorite"
+        to="/favorite"
         value="favorite"
         icon="favorite"
       ></mu-bottom-nav-item>
       <mu-bottom-nav-item
-        class="camera"
+        class="/camera"
         to="edit"
         icon="camera_alt"
       ></mu-bottom-nav-item>
       <mu-bottom-nav-item
-        to="grade"
+        to="/grade"
         value="grade"
         icon="grade"
       ></mu-bottom-nav-item>
       <mu-bottom-nav-item
-        to="travel"
+        to="/travel"
         value="travel"
         icon="location_on"
       ></mu-bottom-nav-item>
