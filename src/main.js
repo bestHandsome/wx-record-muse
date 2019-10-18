@@ -9,9 +9,6 @@ import "muse-ui-loading/dist/muse-ui-loading.css";
 import "assets/css/reset.css";
 const VueUploadComponent = require("vue-upload-component");
 import "swiper/dist/css/swiper.css";
-import "jxh-ui-pc/lib/jxh-ui-pc.css";
-import JxhUi from "jxh-ui-pc";
-Vue.use(JxhUi);
 
 Vue.component("file-upload", VueUploadComponent);
 import MuseUI from "muse-ui";

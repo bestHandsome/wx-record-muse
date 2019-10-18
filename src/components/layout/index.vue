@@ -3,8 +3,8 @@
     <mu-container>
       <mu-drawer :open.sync="isSidebarShow" :docked="false">
         <mu-list>
-          <mu-list-item button>
-            <mu-list-item-title>知识就是力量</mu-list-item-title>
+          <mu-list-item button to="/poster">
+            <mu-list-item-title>生成我的个性海报</mu-list-item-title>
           </mu-list-item>
           <mu-list-item button>
             <mu-list-item-title>学会做人</mu-list-item-title>
@@ -28,7 +28,8 @@ import Footer from "./footer";
 export default {
   data() {
     return {
-      isSidebarShow: false
+      isSidebarShow: false,
+      isDialogShow: false
     };
   },
   components: {

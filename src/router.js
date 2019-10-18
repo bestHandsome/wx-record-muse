@@ -6,6 +6,7 @@ import Favorite from "./views/favorites";
 import Grade from "./views/grade";
 import Edit from "./views/edit";
 import Layout from "./components/layout";
+import Poster from "./views/poster";
 Vue.use(Router);
 
 export default new Router({
@@ -15,7 +16,7 @@ export default new Router({
       path: "/",
       name: "layout",
       component: Layout,
-      redirect: "home",
+      redirect: "favorite",
       children: [
         {
           path: "/home",
@@ -67,6 +68,11 @@ export default new Router({
       path: "/edit",
       name: "edit",
       component: Edit
+    },
+    {
+      path: "/poster",
+      name: "poster",
+      component: Poster
     }
   ]
 });

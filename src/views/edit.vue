@@ -2,7 +2,13 @@
   <div class="edit-area" :class="isPreviewShow ? 'lock-back' : ''">
     <h1 class="edit-top">
       <router-link to="home" class="cancel-text">取消</router-link>
-      <mu-button color="success" small @click="publishComment">发表</mu-button>
+      <mu-button
+        color="success"
+        :disabled="isUploading"
+        small
+        @click="publishComment"
+        >发表</mu-button
+      >
     </h1>
     <mu-text-field
       v-model="value1"
@@ -68,7 +74,8 @@ export default {
       value1: "",
       files: [],
       chooseIndex: 0,
-      isPreviewShow: false
+      isPreviewShow: false,
+      isUploading: false
     };
   },
   mounted() {},
@@ -95,7 +102,7 @@ export default {
         // Start upload
         if (newFile.active !== oldFile.active) {
           console.log("Start upload", newFile.active, newFile);
-
+          this.isUploading = true;
           // max size
           // if (newFile.size >= 100 * 1024) {
           //   newFile = this.$refs.upload.update(newFile, { error: "size" });
@@ -116,6 +123,7 @@ export default {
         // Uploaded successfully
         if (newFile.success !== oldFile.success) {
           console.log("success", newFile.success, newFile);
+          this.isUploading = false;
         }
       }
 

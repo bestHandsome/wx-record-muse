@@ -1,3 +1,4 @@
+const moment = require("moment");
 export function timeTransform(time) {
   const minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
   const hour = minute * 60;
@@ -5,9 +6,10 @@ export function timeTransform(time) {
   const week = day * 7;
   // const halfamonth = day * 15;
   const month = day * 30;
+  time = moment(time).valueOf();
   const now = new Date().getTime(); //获取当前时间毫秒
-  console.log(now);
   const diffValue = now - time; //时间差
+  console.log(diffValue);
   let result = "";
   if (diffValue < 0) {
     return;
