@@ -48,6 +48,9 @@ export default {
 </script>
 
 <style class="content">
+.wrap {
+  overflow: hidden;
+}
 .content {
   height: calc(100vh - 140px);
   margin: 70px 0;

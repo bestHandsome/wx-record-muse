@@ -42,7 +42,7 @@ export default new Router({
           name: "grade",
           component: Grade,
           meta: {
-            title: "评出最想去的地方"
+            title: ""
           }
         }
       ]

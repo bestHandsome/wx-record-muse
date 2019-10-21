@@ -8,7 +8,6 @@ import "muse-ui-message/dist/muse-ui-message.css";
 import "muse-ui-loading/dist/muse-ui-loading.css";
 import "assets/css/reset.css";
 const VueUploadComponent = require("vue-upload-component");
-import "swiper/dist/css/swiper.css";
 
 Vue.component("file-upload", VueUploadComponent);
 import MuseUI from "muse-ui";
@@ -20,6 +19,10 @@ Vue.use(Toast);
 import Loading from "muse-ui-loading";
 Vue.use(Loading);
 import VueAwesomeSwiper from "vue-awesome-swiper";
+
+// require styles
+import "swiper/dist/css/swiper.css";
+
 Vue.use(VueAwesomeSwiper /* { default global options } */);
 Vue.config.productionTip = false;
 new Vue({

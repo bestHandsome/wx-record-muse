@@ -1,5 +1,5 @@
 <template>
-  <mu-appbar class="header" color="primary">
+  <mu-appbar class="header">
     <mu-button icon slot="left" @click="showBar">
       <mu-icon value="menu"></mu-icon>
     </mu-button>
