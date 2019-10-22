@@ -32,7 +32,7 @@
           <file-upload
             class="choose"
             name="image"
-            post-action="http://192.168.40.181:3000/api/upload/image"
+            :post-action="baseUrl + 'upload/image'"
             extensions="gif,jpg,jpeg,png,webp"
             accept="image/png,image/gif,image/jpeg,image/webp"
             :size="1024 * 1024 * 100"
@@ -64,6 +64,7 @@
 <script>
 import Preview from "components/wx-preview.vue";
 import { addComment } from "../api";
+import { __INTERFACEURL__ } from "../assets/js/constants";
 
 export default {
   components: {
@@ -75,7 +76,8 @@ export default {
       files: [],
       chooseIndex: 0,
       isPreviewShow: false,
-      isUploading: false
+      isUploading: false,
+      baseUrl: __INTERFACEURL__
     };
   },
   mounted() {},

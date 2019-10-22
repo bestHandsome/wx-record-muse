@@ -56,10 +56,10 @@
 </style>
 <script>
 import { getCommentList, delComment } from "../api";
-const urlPrefix = "http://192.168.40.181:3000/upload/images/";
 import Preview from "components/wx-preview";
 import NoData from "components/noData";
 import { timeTransform } from "../assets/js/utils";
+import { ImageUrl } from "../assets/js/constants";
 
 export default {
   components: {
@@ -104,7 +104,7 @@ export default {
         loading.close();
         this.list = res;
         this.list.forEach(item => {
-          item.imageArr = item.imageArr.map(item => urlPrefix + item);
+          item.imageArr = item.imageArr.map(item => ImageUrl + item);
         });
       });
     },
