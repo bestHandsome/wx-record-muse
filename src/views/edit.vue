@@ -1,7 +1,7 @@
 <template>
   <div class="edit-area" :class="isPreviewShow ? 'lock-back' : ''">
     <h1 class="edit-top">
-      <router-link to="home" class="cancel-text">取消</router-link>
+      <router-link to="favorite" class="cancel-text">取消</router-link>
       <mu-button
         color="success"
         :disabled="isUploading"

@@ -11,7 +11,7 @@
           <img src="../assets/img/avatar2.eff5aba4.jpg" />
         </div>
         <div class="content-area">
-          <p class="author">小飞</p>
+          <p class="author">哥哥</p>
           <p class="text">
             {{ item.text }}
           </p>
