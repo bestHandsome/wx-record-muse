@@ -16,7 +16,7 @@
       :rows="3"
       :rows-max="6"
       full-width
-      placeholder="这一刻的想法..."
+      placeholder="写出这一刻的想法..."
     ></mu-text-field>
     <div class="upload-wrap">
       <ul class="upload-list">
