@@ -55,11 +55,11 @@
 }
 </style>
 <script>
-import { getCommentList, delComment } from "../api";
-import Preview from "components/wx-preview";
-import NoData from "components/noData";
-import { timeTransform } from "../assets/js/utils";
-import { ImageUrl } from "../assets/js/constants";
+import { getCommentList, delComment } from '../api';
+import Preview from 'components/wx-preview';
+import NoData from 'components/noData';
+import { timeTransform } from '../assets/js/utils';
+import { ImageUrl } from '../assets/js/constants';
 
 export default {
   components: {
@@ -79,7 +79,7 @@ export default {
   },
   methods: {
     back() {
-      this.$router.push("/home");
+      this.$router.push('/home');
     },
     getComments() {
       return new Promise((resolve, reject) => {
@@ -113,14 +113,14 @@ export default {
       const width = el.offsetWidth;
       const height = el.offsetHeight;
       if (width >= height) {
-        el.style.width = "100%";
+        el.style.width = '100%';
       } else {
-        el.style.height = "100%";
+        el.style.height = '100%';
       }
     },
     deleteCom(id) {
-      this.$confirm("确定要删除？", "提示", {
-        type: "warning"
+      this.$confirm('确定要删除？', '提示', {
+        type: 'warning'
       }).then(({ result }) => {
         if (result) {
           delComment({ id }).then(() => {
@@ -128,7 +128,7 @@ export default {
             if (idx >= 0) {
               this.list.splice(idx, 1);
             }
-            this.$toast.message("删除成功");
+            this.$toast.message('删除成功');
           });
         }
       });
@@ -155,7 +155,7 @@ export default {
   margin-bottom: 15px;
   width: 100%;
   height: 200px;
-  background: url("../assets/img/bg-comment.jpg") center no-repeat;
+  background: url('../assets/img/bg-comment.jpg') center no-repeat;
   background-size: 100%;
 }
 .comment-area {

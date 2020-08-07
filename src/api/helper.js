@@ -1,4 +1,4 @@
-import axios from "./axios.config";
+import axios from './axios.config';
 // const qs = require("qs");
 
 export function post(url) {
@@ -6,7 +6,7 @@ export function post(url) {
     return axios
       .post(url, data, {
         headers: {
-          "Content-Type": "application/json"
+          'Content-Type': 'application/json'
         }
       })
       .then(res => {

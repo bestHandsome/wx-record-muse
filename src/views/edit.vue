@@ -34,7 +34,7 @@
             name="image"
             :post-action="baseUrl + 'upload/image'"
             extensions="gif,jpg,jpeg,png,webp"
-            accept="image/png,image/gif,image/jpeg,image/webp"
+            accept="image/png, image/gif, image/jpeg, image/webp"
             :size="1024 * 1024 * 100"
             multiple
             v-model="files"
@@ -62,9 +62,9 @@
 </template>
 
 <script>
-import Preview from "components/wx-preview.vue";
-import { addComment } from "../api";
-import { __INTERFACEURL__ } from "../assets/js/constants";
+import Preview from 'components/wx-preview.vue';
+import { addComment } from '../api';
+import { __INTERFACEURL__ } from '../assets/js/constants';
 
 export default {
   components: {
@@ -72,7 +72,7 @@ export default {
   },
   data() {
     return {
-      value1: "",
+      value1: '',
       files: [],
       chooseIndex: 0,
       isPreviewShow: false,
@@ -91,10 +91,10 @@ export default {
     inputFile(newFile, oldFile) {
       if (newFile && oldFile && !newFile.active && oldFile.active) {
         // 获得相应数据
-        console.log("response", newFile.response);
+        console.log('response', newFile.response);
         if (newFile.xhr) {
           //  获得响应状态码
-          console.log("status", newFile.xhr.status);
+          console.log('status', newFile.xhr.status);
         }
       }
 
@@ -103,7 +103,7 @@ export default {
 
         // Start upload
         if (newFile.active !== oldFile.active) {
-          console.log("Start upload", newFile.active, newFile);
+          console.log('Start upload', newFile.active, newFile);
           this.isUploading = true;
           // max size
           // if (newFile.size >= 100 * 1024) {
@@ -113,18 +113,18 @@ export default {
 
         // Upload progress
         if (newFile.progress !== oldFile.progress) {
-          console.log("progress", newFile.progress, newFile);
+          console.log('progress', newFile.progress, newFile);
         }
 
         // Upload error
         if (newFile.error !== oldFile.error) {
           alert(newFile.error);
-          console.log("error", newFile.error, newFile);
+          console.log('error', newFile.error, newFile);
         }
 
         // Uploaded successfully
         if (newFile.success !== oldFile.success) {
-          console.log("success", newFile.success, newFile);
+          console.log('success', newFile.success, newFile);
           this.isUploading = false;
         }
       }
@@ -166,7 +166,7 @@ export default {
       }
 
       // 创建 blob 字段 用于图片预览
-      newFile.blob = "";
+      newFile.blob = '';
       let URL = window.URL || window.webkitURL;
       if (URL && URL.createObjectURL) {
         newFile.blob = URL.createObjectURL(newFile.file);
@@ -180,9 +180,9 @@ export default {
       const width = el.offsetWidth;
       const height = el.offsetHeight;
       if (width >= height) {
-        el.style.width = "100%";
+        el.style.width = '100%';
       } else {
-        el.style.height = "100%";
+        el.style.height = '100%';
       }
     },
     chargeProgress(file) {
@@ -200,7 +200,7 @@ export default {
       addComment(data).then(
         res => {
           console.log(res);
-          this.$router.push("/favorite");
+          this.$router.push('/favorite');
         },
         err => {
           console.log(err);

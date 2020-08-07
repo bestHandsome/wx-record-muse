@@ -6,13 +6,13 @@
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   height: 100%;
-  background: url("./assets/img/swiper/shouye_nvsheng_bg.png") center no-repeat;
+  background: url('./assets/img/swiper/shouye_nvsheng_bg.png') center no-repeat;
   background-size: 100%;
 }
 #nav {

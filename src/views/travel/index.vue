@@ -10,12 +10,12 @@
 
 <script>
 export default {
-  name: "carrousel",
+  name: 'carrousel',
   data() {
     return {
       list: [
-        require("assets/img/1571197338278.jpg"),
-        require("assets/img/1571197338278.jpg")
+        require('assets/img/1571197338278.jpg'),
+        require('assets/img/1571197338278.jpg')
       ]
     };
   },

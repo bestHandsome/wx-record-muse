@@ -1,3 +1,3 @@
-const globalData = {
-  title: "旅行日记"
+export const globalData = {
+  title: '旅行日记'
 };

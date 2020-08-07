@@ -11,27 +11,27 @@ export default class VueTouch {
     this.vueLeave = true;
     this.longTouch = true;
     this.vueCallBack =
-      typeof binding.value === "object" ? binding.value.fn : binding.value;
+      typeof binding.value === 'object' ? binding.value.fn : binding.value;
   }
 
   initialize() {
     const _this = this;
     this.obj.addEventListener(
-      "touchstart",
+      'touchstart',
       function(e) {
         _this.start(e);
       },
       false
     );
     this.obj.addEventListener(
-      "touchend",
+      'touchend',
       function(e) {
         _this.end(e);
       },
       false
     );
     this.obj.addEventListener(
-      "touchmove",
+      'touchmove',
       function(e) {
         _this.move(e);
       },
@@ -50,7 +50,7 @@ export default class VueTouch {
     this.time = setTimeout(
       function() {
         if (this.vueLeave && this.vueMoves) {
-          this.touchType === "longTap" &&
+          this.touchType === 'longTap' &&
             this.vueCallBack(this.binding.value, e);
           this.longTouch = false;
         }
@@ -63,29 +63,29 @@ export default class VueTouch {
     var disY = e.changedTouches[0].pageY - this.vueTouches.y;
     clearTimeout(this.time);
     if (Math.abs(disX) > 10 || Math.abs(disY) > 100) {
-      this.touchType === "swipe" && this.vueCallBack(this.binding.value, e);
+      this.touchType === 'swipe' && this.vueCallBack(this.binding.value, e);
       if (Math.abs(disX) > Math.abs(disY)) {
         if (disX > 10) {
-          this.touchType === "swipeRight" &&
+          this.touchType === 'swipeRight' &&
             this.vueCallBack(this.binding.value, e);
         }
         if (disX < -10) {
-          this.touchType === "swipeLeft" &&
+          this.touchType === 'swipeLeft' &&
             this.vueCallBack(this.binding.value, e);
         }
       } else {
         if (disY > 10) {
-          this.touchType === "swipeDown" &&
+          this.touchType === 'swipeDown' &&
             this.vueCallBack(this.binding.value, e);
         }
         if (disY < -10) {
-          this.touchType === "swipeUp" &&
+          this.touchType === 'swipeUp' &&
             this.vueCallBack(this.binding.value, e);
         }
       }
     } else {
       if (this.longTouch && this.vueMoves) {
-        this.touchType === "tap" && this.vueCallBack(this.binding.value, e);
+        this.touchType === 'tap' && this.vueCallBack(this.binding.value, e);
         this.vueLeave = false;
       }
     }

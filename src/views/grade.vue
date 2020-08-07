@@ -35,12 +35,12 @@
 export default {
   data() {
     return {
-      value1: "1",
+      value1: '1',
       swiperOption: {
-        effect: "coverflow",
+        effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
-        slidesPerView: "auto",
+        slidesPerView: 'auto',
         coverflowEffect: {
           rotate: 10,
           stretch: 0,

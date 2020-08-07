@@ -64,7 +64,7 @@ export default {
   },
   watch: {
     currentIndex(val) {
-      const el = this.$refs["scroll-area"];
+      const el = this.$refs['scroll-area'];
       el.style.transform = `translateX(-${val * 100}vw)`;
     }
   },
@@ -74,19 +74,19 @@ export default {
     },
     deleteImg() {
       console.log(this.currentIndex);
-      this.$confirm("确定要删除？", "提示", {
-        type: "error"
+      this.$confirm('确定要删除？', '提示', {
+        type: 'error'
       }).then(({ result }) => {
         if (result) {
-          this.$toast.message("已删除");
-          this.$emit("delete", this.currentIndex);
+          this.$toast.message('已删除');
+          this.$emit('delete', this.currentIndex);
           if (this.list.length === 0) {
-            this.$emit("hidePreview");
+            this.$emit('hidePreview');
           } else if (this.currentIndex !== 0) {
             this.currentIndex--;
           }
         } else {
-          this.$toast.message("已取消");
+          this.$toast.message('已取消');
         }
       });
     },
@@ -101,7 +101,7 @@ export default {
       }
     },
     hide() {
-      this.$emit("hidePreview");
+      this.$emit('hidePreview');
     },
     scroll() {
       this.isOperateShow = false;
@@ -117,18 +117,18 @@ export default {
       const width = el.offsetWidth;
       const height = el.offsetHeight;
       if (width < mediaW && height < mediaH) {
-        el.style.width = width + "px";
+        el.style.width = width + 'px';
       } else {
         if (mediaW / mediaH <= width / height) {
-          el.style.width = mediaW + "px";
+          el.style.width = mediaW + 'px';
         } else {
-          el.style.width = height * (width / height) + "px";
+          el.style.width = height * (width / height) + 'px';
         }
       }
     }
   },
   mounted() {
-    const el = this.$refs["scroll-area"];
+    const el = this.$refs['scroll-area'];
     if (this.total > 1) {
       el.style.transform = `translateX(-${this.currentIndex * 100}vw)`;
     }

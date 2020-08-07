@@ -11,13 +11,13 @@
 export default {
   data() {
     return {
-      title: "标题"
+      title: '标题'
     };
   },
   watch: {
     $route: {
       handler: function(to) {
-        this.title = to.meta && to.meta.title ? to.meta.title : "标题";
+        this.title = to.meta && to.meta.title ? to.meta.title : '标题';
       },
       immediate: true
     }
@@ -25,7 +25,7 @@ export default {
   mounted() {},
   methods: {
     showBar() {
-      this.$emit("showSidebar", true);
+      this.$emit('showSidebar', true);
     },
     login() {}
   }
